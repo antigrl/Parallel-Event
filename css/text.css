@@ -3,6 +3,8 @@ body {
 
 header {
 	font-family: Average Sans, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 
@@ -33,7 +35,7 @@ header {
  
  @media only screen and (min-width: 480px) {
    /* Style adjustments for viewports 480px and over go here */
- 	
+
  }
  
  @media only screen and (min-width: 768px) {
