@@ -1,11 +1,19 @@
 import gdata.calendar.service
+import gdata.calendar.client
+import datetime
 
-def getAllEvents(username, password, calendar_name=""):
+def getAllEvents(username, password, calendar_name="", 
+                 start_date=None, end_date = None):
     """
     Returns all events from now 'till the end of time.
     Fetches from the specified calendar, if provided, 
     else retrieves from the default.
     """
+    query = gdata.calendar.service.CalendarEventQuery('default', 'private', 'full')
+    if not start_date:
+        start_date = str(datetime.date.today())
+    query.start_min = start_date
+
     client = gdata.calendar.service.CalendarService(username, password,
                                                     "Parallelevent")
     #Try to log in
@@ -16,8 +24,8 @@ def getAllEvents(username, password, calendar_name=""):
     except Exception, e:
         return "Error Logging in: %s" % e
 
-    #Get feeds
-    feed = client.GetOwnCalendarsFeed()
+    #Specify query converter (to get queries in the date range)
+    feed = client.CalendarQuery(query)
     urls = dict((entry.title.text, entry) for entry in feed.entry)
 
     #Get events from the specified calendar
@@ -34,8 +42,6 @@ def getAllEvents(username, password, calendar_name=""):
     if not alternate_link:
         return
 
-    event_feed = client.GetCalendarEventFeed(alternate_link.href)
-
     all_events = []
     
     #Build up event data structure
@@ -43,7 +49,7 @@ def getAllEvents(username, password, calendar_name=""):
     # (title, content, [] people, [] authors, [] when), ...
     #]
 
-    for index, event in enumerate(event_feed.entry):
+    for index, event in enumerate(feed.entry):
         title = event.title.text
         content = event.content.text
 
