@@ -1,0 +1,8 @@
+@import url("/static/reset.css");
+
+h1 {
+    display: none;
+    background-image: url("http://parallelevent.com/static/parallel-event-logo.png");
+}
+
+
