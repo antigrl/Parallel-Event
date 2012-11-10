@@ -24,7 +24,7 @@ def getAllEvents(username, password, calendar_name="",
     except gdata.service.BadAuthentication, e:
         return [], (error_codes["ERR_AUTH"], "Authentication error logging in: %s" % e)
     except Exception, e:
-        return [], (error_codes["ERR_AUTH"], "Error Logging in: %s" % e)
+        return [], (error_codes["ERR_LOGIN"], "Error Logging in: %s" % e)
 
     #Specify query converter (to get queries in the date range)
     feed = client.CalendarQuery(query)
