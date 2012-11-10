@@ -1,30 +1,15 @@
 import sqlite3
 import cal_events
 
-def create_db(events):
-    """
-    Create an sqlite db from the user's calendar events
-    """
-    conn = sqlite3.connect('gcal.db')
-    c = conn.cursor()
-
-    c.execute('''CREATE TABLE events
-                         (title text, content text, people text, authors text, date text)''')
-
-    for event in events:
-        title, content, people, authors, when = event
-        c.execute("INSERT INTO events VALUES (?, ?, ?, ?, ?)",
-                   (title, content, "\n".join(people[0]), "\n".join(authors), "\n".join(when[0])))
-    
-    conn.commit()
-    conn.close()
-
 def check_new_events(events):
     """
     Check against the db for new events
     """
     conn = sqlite3.connect('gcal.db')
     c = conn.cursor()
+
+    c.execute('''CREATE TABLE IF NOT EXISTS events
+                         (title text, content text, people text, authors text, date text)''')
 
     c.execute("SELECT title from events")
     data = c.fetchall()
@@ -38,8 +23,12 @@ def check_new_events(events):
         title, content, people, authors, when = event
         
         if title not in data:
+            #Flatten people, when
+            people = [person for person_list in people for person in person_list]
+            when = [time for time_list in when for time in time_list]
+
             c.execute("INSERT INTO events VALUES (?, ?, ?, ?, ?)",
-                       (title, content, "\n".join(people[0]), "\n".join(authors), "\n".join(when[0])))
+                       (title, content, "\n".join(people), "\n".join(authors), "\n".join(when)))
 
             new_events.append(event)
 
