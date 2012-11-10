@@ -1,0 +1,40 @@
+body {
+	background: #e1e1e1 url('../img/bg.png') repeat;
+}
+
+h1.logo {
+	width: 192px; height: 76px;
+	background: url('../img/logo.png');
+}
+.logo a { display: none; }
+
+.header {
+	background: #ffffff;
+	padding: 15px 10px 10px 10px;
+	border-bottom: 1px solid #000;
+}
+
+.main-menu {
+	list-style-type: none;
+	margin: 30px 50px 0 0;
+}
+
+.main-menu li {
+	display: inline;
+	list-style-type: none;	
+
+	padding: .2em 1em;
+	color: #000;
+	border: 1px solid #000;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	margin-right: 20px;
+}
+.main-menu li a {
+	color: #000;
+}
+
+.main-menu li a:hover{
+	color: #037f8c;
+}
