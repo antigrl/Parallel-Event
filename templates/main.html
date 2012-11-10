@@ -1,7 +1,29 @@
 <!doctype html>
-<title>Hello from Flask</title>
-{% if name %}
-<h1>Hello {{ name }}!</h1>
-{% else %}
-<h1>Hello World!</h1>
-{% endif %}
+<html>
+<head>
+    {% block head %}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Parallelevent: {% block title %}all your social media are belong to us.{% endblock %}</title>
+    <link rel="stylesheet" href="/static/all.css" type="text/css" media="screen" charset="utf-8">
+    {% endblock %}
+</head>
+
+<body>
+    <div id="header">
+    {% block header %}
+        <h1>Parallelevent!</h1>
+    {% endblock %}
+    </div>
+    <div id="content">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+    
+    <div id="footer">
+    {% block footer %}
+
+    {% endblock %}
+    </div>
+</body>
+</html>
