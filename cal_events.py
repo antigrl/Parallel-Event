@@ -48,10 +48,11 @@ def getAllEvents(username, password, calendar_name="",
     
     #Build up event data structure
     #[
-    # (title, content, [] people, [] authors, [] when), ...
+    # (id, title, content, [] people, [] authors, [] when), ...
     #]
 
     for index, event in enumerate(feed.entry):
+        uid = event.id.text
         title = event.title.text
         content = event.content.text
 
@@ -67,6 +68,6 @@ def getAllEvents(username, password, calendar_name="",
         for e_index, e_time in enumerate(event.when):
             when.append((e_time.start_time, e_time.end_time))
 
-        all_events.append((title, content, people, authors, when))
+        all_events.append((uid, title, content, people, authors, when))
 
     return all_events, ()
