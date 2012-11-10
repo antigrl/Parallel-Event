@@ -6,13 +6,7 @@ import simplejson
 def index(request, template='index.html'):
     services = [
         'Facebook',
-        'foursquare',
-        'Instagram',
-        'Tumblr',
         'Twitter',
-        'LinkedIn',
-        'FitBit',
-        'Email'
     ]
     if request.user.is_authenticated():
         user_profile = request.user.get_profile()
