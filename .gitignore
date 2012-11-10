@@ -1,8 +1,4 @@
-Hello World
-d]
-
-# C extensions
-*.so
+*.py[co]
 
 # Packages
 *.egg
@@ -16,8 +12,6 @@ var
 sdist
 develop-eggs
 .installed.cfg
-lib
-lib64
 
 # Installer logs
 pip-log.txt
@@ -25,12 +19,12 @@ pip-log.txt
 # Unit test / coverage reports
 .coverage
 .tox
-nosetests.xml
 
-# Translations
+#Translations
 *.mo
 
-# Mr Developer
+#Mr Developer
 .mr.developer.cfg
-.project
-.pydevproject
+nppBackup
+/profileResults
+/points.cache
