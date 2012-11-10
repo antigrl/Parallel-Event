@@ -2,6 +2,8 @@ import gdata.calendar.service
 import gdata.calendar.client
 import datetime
 
+from pe_errors import error_codes
+
 def getAllEvents(username, password, calendar_name="", 
                  start_date=None, end_date = None):
     """
@@ -20,9 +22,9 @@ def getAllEvents(username, password, calendar_name="",
     try:
         client.ProgrammaticLogin()
     except gdata.service.BadAuthentication, e:
-        return "Authentication error logging in: %s" % e
+        return [], (error_codes["ERR_AUTH"], "Authentication error logging in: %s" % e)
     except Exception, e:
-        return "Error Logging in: %s" % e
+        return [], (error_codes["ERR_AUTH"], "Error Logging in: %s" % e)
 
     #Specify query converter (to get queries in the date range)
     feed = client.CalendarQuery(query)
@@ -67,4 +69,4 @@ def getAllEvents(username, password, calendar_name="",
 
         all_events.append((title, content, people, authors, when))
 
-    return all_events
+    return all_events, ()
