@@ -4,8 +4,7 @@ import datetime
 
 from pe_errors import error_codes
 
-def getAllEvents(token, calendar_name="", 
-                 start_date=None, end_date = None):
+def getAllEvents(token, start_date=None, end_date = None):
     """
     Returns all events from now 'till the end of time.
     Fetches from the specified calendar, if provided, 
@@ -20,27 +19,13 @@ def getAllEvents(token, calendar_name="",
         start_date = str(datetime.date.today())
     query.start_min = start_date
 
-    """
-    #Try to log in
-    try:
-        client.ProgrammaticLogin()
-    except gdata.service.BadAuthentication, e:
-        return [], (error_codes["ERR_AUTH"], "Authentication error logging in: %s" % e)
-    except Exception, e:
-        return [], (error_codes["ERR_LOGIN"], "Error Logging in: %s" % e)
-    """
-
     #Specify query converter (to get queries in the date range)
     feed = client.CalendarQuery(query)
     urls = dict((entry.title.text, entry) for entry in feed.entry)
 
     #Get events from the specified calendar
-    cal = None
-    if urls.get(calendar_name):
-        cal = urls[calendar_name]
-    else:
-        #Use the default calendar
-        cal = feed.entry[0]
+    #Use the default calendar - change this
+    cal = feed.entry[0]
 
     alternate_link = cal.GetAlternateLink()
 
@@ -74,4 +59,13 @@ def getAllEvents(token, calendar_name="",
 
         all_events.append((uid, title, content, people, authors, when))
 
-    return all_events, ()
+    return all_events, client
+
+def getAllCalendars(client):
+    feed = client.GetAllCalendarsFeed()
+    calendars = []
+
+    for calendar in feed.entry:
+        calendars.append(calendar.title.text)
+
+    return calendars

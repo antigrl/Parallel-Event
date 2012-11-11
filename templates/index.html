@@ -118,34 +118,35 @@
       </section>
     </div>
   </div>
- 
   <div id="dark-bg">
     <div class="container">
       <section class="row">
-      </section>
+	  </section>
+	  <ol>
+		  <li> Login below with Facebook or Twitter </li>
+		  <li> Click "Link Accounts" </li>
     </div>
 </div>
 
   <div>
-    <span class="social">
-              <a href="#" class="fb">Facebook</a>
-              <a href="#" class="tw">Twitter</a>
-            </span>
-  	<ul id="auth">
-  	{% for service in services %}
-  		<li>
-  		<a href="/authenticate/{{ service.lower }}">
-  			{% if service.lower in profiles %}
-  				<span class="check">&#10003;</span>"
-  			{% endif %}
-  			{{ service }}
-  		</a>
-  		</li>
-  	{% endfor %}
-  	<li>
-  		<a href="/gauth/">Google Calendar</a>
-  	</li>
-  	</ul>
+	<ul id="auth">
+	{% for service in services %}
+		<li>
+		<a href="/authenticate/{{ service.lower }}">
+			{% if service.lower in profiles %}
+				<span class="check">&#10003;</span>"
+			{% endif %}
+			{{ service }}
+		</a>
+		</li>
+	{% endfor %}
+	{% if user.is_authenticated %}	
+	<li>
+		<a href="/gauth/">Link Accounts</a><br/>
+		<a href="/">Unsubscribe</a>
+	</li>
+	{% endif %}
+	</ul>
   </div>
   <div class="container footer">
     <div class="row">
