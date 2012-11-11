@@ -6,6 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('webapp.views',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^gauth/$', 'gauth_redirect'),
+    url(r'^gauthcomplete$', 'gauth_complete'),
     url(r'', include('singly.urls')),
-    url(r'^$', 'index', name='index')
+    url(r'^$', 'index', name='index'),
 )
