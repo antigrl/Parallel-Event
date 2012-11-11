@@ -2,8 +2,6 @@ import gdata.calendar.service
 import gdata.calendar.client
 import datetime
 
-from pe_errors import error_codes
-
 def getAllEvents(token, start_date=None, end_date = None):
     """
     Returns all events from now 'till the end of time.
