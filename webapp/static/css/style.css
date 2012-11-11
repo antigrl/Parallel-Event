@@ -253,8 +253,19 @@ form fieldset {
 .get-started:hover {
 	color: #037f8c;
 }
-.social li {
-	margin-top:50px;
+
+.social {
+	background: #fff;
+	position: relative;
+	height: 100px;
+	width: 280px;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 120px 0 50px 0;
+	text-align: center;
+}
+.social p {
+	font-size: 16px;
 }
 .fb,.tw  {
     float: left;
@@ -283,9 +294,15 @@ form fieldset {
 	height: 42px;
 }
 
+.center {
+	padding-left:80px;
+}
 .footer {
 	background: #fff;
 	padding: 15px 10px 10px 10px;
 	border-top: 1px solid #c3c2bf;
+}
+.footer a {
+	color: #037f8c;
 }
 

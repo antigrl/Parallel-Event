@@ -116,53 +116,57 @@
         </div>
     </div>
   </div>
-  <div id="dark-bg">
     <div class="container">
       <section class="row">
-        <div class="social">
-    	     <div class="four column">
-              <ol>
-      		      <li> Login below with Facebook or Twitter </li>
-              </ol>
-              <a href="#" class="fb">Facebook</a>
-              <a href="#" class="tw">Twitter</a>
+          <div class="four column">
+            <div class="social">
+              <p>1. Login with Facebook or Twitter</p>
+              <div class="center">
+                <a href="#" class="fb">Facebook</a>
+                <a href="#" class="tw">Twitter</a>
+              </div>
+            </div>
           </div>
           <div class="four column">
-            <ol>
-    		      <li> Click "Link Accounts" </li>
-            </ol>
+            <div class="social">
+              <p>2. Click "Link Accounts"</p>
+            </div>
           </div>
           <div class="four column">
+            <div class="social">
+            </div>
           </div>
-        </div>
       </section>
     </div>
-</div>
-
-  <div>
-	<ul id="auth">
-	{% for service in services %}
-		<li>
-		<a href="/authenticate/{{ service.lower }}">
-			{% if service.lower in profiles %}
-				<span class="check">&#10003;</span>"
-			{% endif %}
-			{{ service }}
-		</a>
-		</li>
-	{% endfor %}
-	{% if user.is_authenticated %}	
-	<li>
-		<a href="/gauth/">Link Accounts</a><br/>
-		<a href="/">Unsubscribe</a>
-	</li>
-	{% endif %}
-	</ul>
+    <ul id="auth">
+  {% for service in services %}
+    <li>
+    <a href="/authenticate/{{ service.lower }}">
+      {% if service.lower in profiles %}
+        <span class="check">&#10003;</span>"
+      {% endif %}
+      {{ service }}
+    </a>
+    </li>
+  {% endfor %}
+  {% if user.is_authenticated %}  
+  <li>
+    <a href="/gauth/">Link Accounts</a><br/>
+    <a href="/">Unsubscribe</a>
+  </li>
+  {% endif %}
+  </ul>
   </div>
+  
   <div class="container footer">
     <div class="row">
+      <div class="one centered">
+        <a href="#"><i class="icon-github"></i></a>
+      </div>
     </div>
   </div>
+
+
 
   <!-- JavaScript at the bottom for fast page loading -->
 
