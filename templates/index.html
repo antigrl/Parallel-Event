@@ -69,14 +69,6 @@
           </h1>
         </div><!-- end four columns -->
 
-        <!-- I don't think we need this...
-        <div class="four columns">
-            <ul class="main-menu">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-            </ul>
-        </div> -->
-
         <div class="four column login omega">
           <nav><!-- drop down login box -->
             <ul>
@@ -108,16 +100,21 @@
   </div> <!--! end of #container -->
 
 
-  <div class="container">
-    <section class="row">
-
-    </section>
-  </div>
-
-
   <div id="how-it-works" class="content-bottom">
     <div class="container">
       <section class="row">
+        <div class="nine centered">
+          <img src="/static/img/main-text.png">
+        </div>
+      </section>
+      <section class="row">
+        <div class="two columns push_three start">
+          <a class="get-started" href="#">Get Started</a>
+        </div>
+        <div class="seven columns omega">
+          <img src="/static/img/bunny.png">
+        </div>
+      <section>
       </section>
     </div>
   </div>
@@ -130,30 +127,28 @@
 </div>
 
   <div>
-	<ul id="auth">
-	{% for service in services %}
-		<li>
-		<a href="/authenticate/{{ service.lower }}">
-			{% if service.lower in profiles %}
-				<span class="check">&#10003;</span>"
-			{% endif %}
-			{{ service }}
-		</a>
-		</li>
-	{% endfor %}
-	<li>
-		<a href="/gauth/">Google Calendar</a>
-	</li>
-	</ul>
+    <span class="social">
+              <a href="#" class="fb">Facebook</a>
+              <a href="#" class="tw">Twitter</a>
+            </span>
+  	<ul id="auth">
+  	{% for service in services %}
+  		<li>
+  		<a href="/authenticate/{{ service.lower }}">
+  			{% if service.lower in profiles %}
+  				<span class="check">&#10003;</span>"
+  			{% endif %}
+  			{{ service }}
+  		</a>
+  		</li>
+  	{% endfor %}
+  	<li>
+  		<a href="/gauth/">Google Calendar</a>
+  	</li>
+  	</ul>
   </div>
-
-
-  <div id="srs-footer">
-    <div id="footer" class="footer-bottom">
-      <div class="container">
-        <section class="row">
-        </section>
-      </div>
+  <div class="container footer">
+    <div class="row">
     </div>
   </div>
 
