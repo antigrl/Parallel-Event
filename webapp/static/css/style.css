@@ -48,7 +48,6 @@ nav ul {
   	list-style: none;
   	position: relative;
   	float: right;
-  	border-bottom: 1px solid #fff;
   	-moz-border-radius: 3px;
   	-webkit-border-radius: 3px;
   	border-radius: 3px;
@@ -60,9 +59,9 @@ nav li {
 
 nav #login {
   	border-right: 1px solid #ddd;
-  	-moz-box-shadow: 1px 0 0 #fff;
-  	-webkit-box-shadow: 1px 0 0 #fff;
-  	box-shadow: 1px 0 0 #fff;
+  	-moz-box-shadow: 1px 0 0 #dddcdb;
+  	-webkit-box-shadow: 1px 0 0 #dddcdb;
+  	box-shadow: 1px 0 0 #dddcdb;
 }
 
 nav #login-trigger,
@@ -170,7 +169,6 @@ nav li #login-content {
   padding: 0;
   width: 100px;
   cursor: pointer;
-  font: bold 14px Arial, Helvetica;
   color: #fff;
 }
 
