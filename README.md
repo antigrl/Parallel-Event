@@ -27,3 +27,12 @@ As prompted, you may set up an superuser if you plan on using the Django admin t
 Start the server
 
     python manage.py runserver
+
+THINGS LEARNED
+==============
+
+1. Research prior art thoroughly!! (we discovered we were cloning a better version of what we were doing 3 hours in)
+2. Talk through app idea -> interaction model (-> some domain modeling) enough to really be unified on macro concepts before ANY implementation
+3. Learn tools better in advance (shortcuts for common actions especially for design tools)
+4. Explore apis in advance =)
+5. Set up lightweight process in advance (Trello)
