@@ -16,5 +16,6 @@ def authorize_callback(request):
             content['account'], content['access_token'])
     if not request.user.is_authenticated():
         user = authenticate(username=user_profile.user.username, password='fakepassword')
+        print 'logging in'
         auth_login(request, user)
     return HttpResponseRedirect('/')

@@ -1,0 +1,12 @@
+{% block content %}
+	<form action='' method='post'>
+	{% csrf_token %}
+	<div>
+	{% if form.errors %}
+		<p>Please correct the following fields:</p>
+	{% endif %}
+	{{ form.as_p }}
+	<p><input type="submit"/></p>
+	</div>
+	</form>
+{% endblock %}

@@ -121,11 +121,13 @@
       </section>
     </div>
   </div>
- 
   <div id="dark-bg">
     <div class="container">
       <section class="row">
-      </section>
+	  </section>
+	  <ol>
+		  <li> Login below with Facebook or Twitter </li>
+		  <li> Click "Link Accounts" </li>
     </div>
 </div>
 
@@ -141,9 +143,12 @@
 		</a>
 		</li>
 	{% endfor %}
+	{% if user.is_authenticated %}	
 	<li>
-		<a href="/gauth/">Google Calendar</a>
+		<a href="/gauth/">Link Accounts</a><br/>
+		<a href="/">Unsubscribe</a>
 	</li>
+	{% endif %}
 	</ul>
   </div>
 
