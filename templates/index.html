@@ -6,6 +6,7 @@
 <!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
 <head>
+	{% block head %}``
   <meta charset="utf-8">
 
   <!-- Use the .htaccess and remove these lines to avoid edge case issues.
@@ -40,7 +41,7 @@
   <!-- <link rel="stylesheet" href="css/minified.css"> -->
   
   <!-- CSS imports non-minified for staging, minify before moving to production-->
-  <link rel="stylesheet" href="../webapp/static/css/imports.css">
+  <link rel="stylesheet" href="/static/css/imports.css">
   <!-- end CSS-->
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
@@ -132,7 +133,7 @@
 			{{ service }}
 		</a>
 		</li>
-		{% endfor %}
+	{% endfor %}
 	<li>
 		<a href="/gauth/">Google Calendar</a>
 	</li>
@@ -161,9 +162,9 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
-  <script src="../webapp/static/js/libs/gumby.min.js"></script>
-  <script src="../webapp/static/js/plugins.js"></script>
-  <script src="../webapp/static/js/main.js"></script>
+  <script src="/static/js/libs/gumby.min.js"></script>
+  <script src="/static/js/plugins.js"></script>
+  <script src="/static/js/main.js"></script>
   <!-- end scripts-->
 
 
