@@ -22,8 +22,8 @@ def index(request, template='index.html'):
     return response
 
 def GetAuthSubUrl():
-    #next = 'http://www.parallelevent.com/gauthcomplete'
-    next = 'http://localhost:8000/gauthcomplete'
+    next = 'http://www.parallelevent.com/gauthcomplete'
+    #next = 'http://localhost:8000/gauthcomplete'
     scope = 'http://www.google.com/calendar/feeds/'
     secure = False
     session = True
