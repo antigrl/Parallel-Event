@@ -1,3 +1,1 @@
-web: python pe.py
-
-
+python ./manage.py runserver 0.0.0.0.
