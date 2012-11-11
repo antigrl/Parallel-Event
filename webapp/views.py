@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 import simplejson
+import os
 
 import gdata.calendar.service
 import cal_events
@@ -26,8 +27,10 @@ def index(request, template='index.html'):
     return response
 
 def GetAuthSubUrl():
-    #next = 'http://www.parallelevent.com/gauthcomplete'
-    next = 'http://localhost:8000/gauthcomplete'
+    if 'ENVIRONMENT' in os.environ:
+        next = 'http://www.parallelevent.com/gauthcomplete'
+    else:
+        next = 'http://localhost:8000/gauthcomplete'
     scope = 'http://www.google.com/calendar/feeds/'
     secure = False
     session = True
