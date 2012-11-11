@@ -48,8 +48,14 @@
   <!-- All JavaScript at the bottom, except for Modernizr / Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
-</head>
+
+
+  <script src="static/js/libs/modernizr-2.0.6.min.js"></script>
+
+  <script src="/static/app.js"></script>
+	
+  {% endblock %}
+</head> 
 
 <body>
 
@@ -100,6 +106,7 @@
 
   </div> <!--! end of #container -->
 
+
   <div class="container">
     <section class="row">
 
@@ -112,6 +119,24 @@
       <section class="row">
       </section>
     </div>
+  </div>
+
+  <div>
+	<ul id="auth">
+	{% for service in services %}
+		<li>
+		<a href="/authenticate/{{ service.lower }}">
+			{% if service.lower in profiles %}
+				<span class="check">&#10003;</span>"
+			{% endif %}
+			{{ service }}
+		</a>
+		</li>
+		{% endfor %}
+	<li>
+		<a href="/gauth/">Google Calendar</a>
+	</li>
+	</ul>
   </div>
 
   <div id="dark-bg">
