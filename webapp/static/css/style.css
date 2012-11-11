@@ -253,16 +253,29 @@ form fieldset {
 .get-started:hover {
 	color: #037f8c;
 }
-.social a {
-	width: 43px;
-	height: 42px;
-	text-indent: -9999px;
-	margin: 0;
-	background: url("imgs/social-sprite.png") no-repeat;
-	float: left;
+.social li {
+	margin-top:50px;
 }
-
-
+.fb,.tw  {
+    float: left;
+    width: 43px;
+    height: 42px;
+    margin-right: 30px;
+    text-indent: -99999px;
+    background: url('../img/social-sprite.png') no-repeat;
+}
+.fb {
+	background-position: 0 0;
+}
+.fb:hover {
+	background-position: -45px 0;
+}
+.tw {
+	background-position: 0 -44px;
+}
+.tw:hover {
+	background-position: -45px -44px;
+}
 
 .twit-sprite:hover {
 	background: url('imgs/twitter-btn.png') no-repeat -45px 0;
