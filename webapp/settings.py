@@ -167,6 +167,9 @@ LOGGING = {
     }
 }
 
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
 try:
     from local_settings import *
 except ImportError:
